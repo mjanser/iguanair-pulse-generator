@@ -69,7 +69,7 @@ hex_pulses() {
 BIN=""
 hex2bin() {
     for j in $1; do
-        BIN=$(echo "obase=2; ibase=16; $j" | bc )
+        BIN=$(printf %016d $(echo "obase=2; ibase=16; $j" | bc ))
     done
     [ $reverse -eq 1 ] && BIN=$(echo $BIN | rev)
 }
